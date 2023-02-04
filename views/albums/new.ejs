@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Enter a New Album</h2>
+    <form action="/albums" method="POST">
+      <label>Title: <input type="text" name="title" /> </label><br />
+      <label>Release Year: <input type="text" name="releaseYear" /> </label
+      ><br />
+      <label>Genre: <input type="text" name="genre" /> </label><br />
+      <label
+        >By (if it is a collab Album, please seperate Artists with a comma):
+        <input type="text" name="by" /> </label
+      ><br />
+
+      <input type="submit" value="Add Album" />
+    </form>
+  </body>
+</html>

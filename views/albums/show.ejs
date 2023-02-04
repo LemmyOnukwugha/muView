@@ -1,0 +1,27 @@
+<section id="show-page">
+    <div>Title: </div>
+    <div><%= album.title %></div>
+    <div>Release Year: </div>
+    <div><%= album.releaseYear %></div>
+    <div>Genre: </div>
+    <div><%= album.genre %></div>
+    <div>By: </div>
+    <div><%= album.by.join(', ') %></div>
+  </section>
+  </section>
+  <!-- new markup below -->
+  <br><br><h2>Reviews</h2>
+  <form id="add-review-form" method="POST"
+    action="/movies/<%= movie._id %>/reviews">
+    <label>Review:</label>
+    <textarea name="content"></textarea>
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="submit" value="Add Review">
+  </form>

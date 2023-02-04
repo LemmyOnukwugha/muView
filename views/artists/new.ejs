@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<p>
+  Please first ensure that the Artist is not in the dropdown
+  <select>
+    <% artists.forEach(function(p){ %>
+    <option><%= a.name%></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-artist-form" action="/artists" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" />
+  <label>Genre:</label>
+  <input type="text" name="genre" />
+  <label>Date of Birth:</label>
+  <input type="text" name="dob" />
+  <label>Place of Birth:</label>
+  <input type="text" name="pob" />
+</form>
+
+<%- include('../partials/footer') %>

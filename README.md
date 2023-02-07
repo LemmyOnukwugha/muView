@@ -27,7 +27,7 @@ List of Technologies used
 
 ## Getting Started
 
-<a href="">muView By Lemmy</a>
+<a href="https://muview.herokuapp.com">muView By Lemmy</a>
 
 ## AAAU
 

@@ -4,7 +4,7 @@
 
 ---
 
-is a music review website for music Lovers World Wide.
+a music review website for music Lovers World Wide. For people that would like to share their thoughts on ablums and know what others are thinking as well. The application allows its users to place comments and edit them later on.
 
 ## Planning
 
@@ -40,5 +40,7 @@ List of Technologies used
 ---
 
 1. style the app to look modern
-2. Implement the image feature
+2. Implement the image feature correctly
 3. make Use of oAuth
+4. Add a feature to review singles as well
+5. style list and reviews to look like cards

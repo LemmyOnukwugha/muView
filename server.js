@@ -4,6 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+require("dotenv").config();
+
 //connect to the database with Mongoose
 require("./config/database");
 

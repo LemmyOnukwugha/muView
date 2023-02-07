@@ -1,4 +1,7 @@
 const Album = require("../models/album");
+const Image = require("../models/image");
+const fs = require("fs");
+const path = require("path");
 
 function index(req, res, next) {
   Album.find({}, (err, albums) => {
@@ -21,6 +24,23 @@ function newAlbum(req, res) {
 }
 
 function create(req, res) {
+  const obj = {
+    name: req?.body?.tile,
+    img: {
+      data: req.file.buffer,
+      contentType: "image/png",
+    },
+  };
+  Image.create(obj, (err, image) => {
+    if (err) {
+      console.log(err, "error saving image");
+    } else {
+      image.save();
+      console.log(image, "image was saved");
+      res.redirect("/");
+    }
+  });
+  console.log(req.file, "the file in the request");
   req.body.by = req.body.by.replace(/\s*,\s*/g, ",");
   if (req.body.by) req.body.by = req.body.by.split(",");
   const album = new Album(req.body);
@@ -30,7 +50,6 @@ function create(req, res) {
     res.redirect("/albums");
   });
 }
-
 module.exports = {
   new: newAlbum,
   create,

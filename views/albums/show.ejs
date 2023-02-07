@@ -1,5 +1,41 @@
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>muView</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../public/stylesheets/" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="btn btn-outline-dark" href="/" role="button">Home</a>
+          <a class="btn btn-outline-dark" href="/albums" role="button"
+            >All Albums</a
+          >
+          <a class="btn btn-outline-dark" href="/albums/new" role="button"
+            >Add a new Album</a
+          ></nav>
+        <div class="jumbotron" style="background-color: white; color: black">
+          <h1 class="display-4">muView</h1>
 
+          <hr class="my-4" />
+  
+          
+      </div>
+    </div>
+<div>
 <section id="show-page">
     <div>Title: </div>
     <div><%= album.title %></div>
@@ -25,7 +61,7 @@
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
-    <input type="submit" value="Add Review">
+    <input type="submit" class="btn btn-outline-dark" value="Add Review">
   </form>
 
   <% if (album.reviews.length) { %>
@@ -35,6 +71,7 @@
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +82,22 @@
             <td><%= r.createdAt.toLocaleDateString() %></td>
             <td><%= r.content %></td>
             <td><%= r.rating %></td>
-          </tr>
+            <td><form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
+              <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <input name="text" value="<%= r.text %>">
+              <button type="submit" class="btn btn-outline-dark">EDIT</button>
+            </form>
+            </td>
+            <td><form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-outline-dark">DELETE </button>
+            </form>
+            </td>
         <% }); %>
         <tr>
           <td colspan="2"></td>
@@ -56,6 +108,6 @@
   <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
-  
-
-  <%- include('../partials/footer') %>
+</div>
+</body>
+</html>

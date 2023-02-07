@@ -10,6 +10,9 @@ require("./config/database");
 var indexRouter = require("./routes/index");
 var albumsRouter = require("./routes/albums");
 var reviewsRouter = require("./routes/reviews");
+var methodOverride = require("method-override");
+var multer = require("multer");
+const upload = multer({ dest: "./public/images" });
 
 var app = express();
 
@@ -17,6 +20,7 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(methodOverride("_method"));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +30,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/albums", albumsRouter);
 app.use("/", reviewsRouter);
+
+app.post("/albums", upload.single("cover"), (req, res) => {
+  res.render("albums/new");
+  console.log(req.file, req.body);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

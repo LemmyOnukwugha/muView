@@ -13,9 +13,11 @@ const reviewSchema = new Schema(
 );
 
 const albumSchema = new Schema({
-  title: String,
+  // cover: [coverSchema],
+  title: { type: String, required: true },
   releaseYear: {
     type: Number,
+
     default: function () {
       return new Date().getFullYear();
     },

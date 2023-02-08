@@ -8,7 +8,9 @@ a music review website for music Lovers World Wide. For people that would like t
 
 ## Planning
 
-## <a href="https://www.figma.com/file/dE8FyoMJMhfmfQdBjVmOmQ/Untitled?node-id=0%3A1&t=gHZh1zvTTxuaU0os-1"> wireframe & ERD<a>
+# <a href="https://www.figma.com/file/dE8FyoMJMhfmfQdBjVmOmQ/Untitled?node-id=0%3A1&t=gHZh1zvTTxuaU0os-1"> wireframe & ERD<a>
+
+# <a href="https://trello.com/invite/b/0AoEBKl1/ATTI8de9d9e4a40920a88a00fbfc8fa1e21f59407DE6/muview"> Trello<a>
 
 ## Technologies
 
